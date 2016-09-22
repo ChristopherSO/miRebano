@@ -1,0 +1,10 @@
+{
+	"name": "com.shepherddev.mirebano",
+	"app_id": "",
+	"gulpDependantTasks": [
+		"sass"
+	],
+	"gulpStartupTasks": [
+		"watch"
+	]
+}
