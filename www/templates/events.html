@@ -2,7 +2,7 @@
   <ion-content>
 	<ion-list>
 	  <ion-item class="item item-text-wrap" ng-repeat="event in events" href="#/app/events/{{event.id}}" ng-click="doSomething()">
-		{{event.person.getFullName()}} tiene su {{event.type}} el {{event.getDate() | date:'d-MMM-yyyy'}}
+		<a href="#/app/persons/{{event.person.id}}">{{event.person.getFullName()}}</a> tiene su {{event.type}} el <nobr>{{event.getDate() | date:'d-MMM-yyyy'}}</nobr>
 	  </ion-item>
 	</ion-list>
   </ion-content>
