@@ -1,10 +1,15 @@
 {
-	"name": "com.shepherddev.mirebano",
-	"app_id": "",
-	"gulpDependantTasks": [
-		"sass"
-	],
-	"gulpStartupTasks": [
-		"watch"
-	]
+  "name": "com.shepherddev.mirebano",
+  "app_id": "",
+  "gulpDependantTasks": [
+    "sass"
+  ],
+  "gulpStartupTasks": [
+    "watch",
+    "sass"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }
