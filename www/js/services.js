@@ -24,6 +24,13 @@
 				apellido1: 'Suárez',
 				apellido2: 'Ortíz',
 				genero: 'M'
+			},
+			{
+				id: 4,
+				nombre: 'Ester',
+				apellido1: 'Salas',
+				apellido2: 'Sánchez',
+				genero: 'F'
 			}
 		],
 
@@ -86,7 +93,23 @@
 				tipo: 'cumpleaños',
 				dia: 15,
 				mes: 2,
-				anio: 83
+				anio: 1983
+			},
+			{
+				id: 4,
+				id_persona: 4,
+				tipo: 'cumpleaños',
+				dia: 25,
+				mes: 6,
+				anio: 1994
+			},
+			{
+				id: 5,
+				id_persona: 1,
+				tipo: 'cumpleaños',
+				dia: 9,
+				mes: 12,
+				anio: 1989
 			}
 	];
 

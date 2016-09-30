@@ -1,17 +1,15 @@
 ﻿<ion-view view-title="Detalles del miembro">
 	<ion-content class="padding">
 		<h3>{{ person.getFullName() }}</h3>
-		<div class="row">
-			<div class="col"><b>Género:</b></div>
-			<div class="col col-67">{{ person.getGender() }}</div>
-		</div>
-		<div class="row">
-			<div class="col"><b>Message:</b></div>
-			<div class="col col-67">Mensaje</div>
-		</div>
-		<div ng-repeat="event in personsEvents" class="row row-center">
-			<div class="col capitalize"><b>{{event.type}}:</b></div>
-			<div class="col col-67">{{event.getDate() | date:'d-MMM-yyyy'}}</div>
+		<div class="card">
+			<div class="item item-text-wrap">
+				<h2>Género:</h2>
+				<p>{{ person.getGender() }}</p>
+			</div>
+			<div ng-repeat="event in personsEvents" class="item item-text-wrap">
+				<h2 class="capitalize">{{event.type}}:</h2>
+				<p>{{event.getDate() | date:"d 'de' MMMM"}}</p>
+			</div>
 		</div>
 	</ion-content>
 </ion-view>

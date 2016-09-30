@@ -21,6 +21,9 @@ ion-item a {
 .capitalize::first-letter {
   text-transform: capitalize; }
 
+.card .item h2 {
+  font-weight: bold; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

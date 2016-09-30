@@ -67,7 +67,14 @@
 	 * Public method, assigned to prototype
 	 */
 	Event.prototype.getDate = function () {
-		return new Date(this.year || 0, this.month, this.day);
+		return new Date(this.year || 0, this.month-1, this.day);
+	};
+
+	/**
+	 * Public method, assigned to prototype
+	 */
+	Event.prototype.getYearsToMeet = function () {
+		return (new Date()).getFullYear() - this.year;
 	};
 
 	/**
