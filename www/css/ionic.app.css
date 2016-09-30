@@ -18,6 +18,9 @@ $dark:                            #444 !default;
 ion-item a {
   text-decoration: none; }
 
+.capitalize::first-letter {
+  text-transform: capitalize; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -3932,9 +3935,9 @@ a.subdued {
     border-color: #b2b2b2;
     background-color: #f8f8f8;
     background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
-    color: #fff; }
+    color: #444; }
     .bar.bar-stable .title {
-      color: #fff; }
+      color: #444; }
     .bar.bar-stable.bar-footer {
       background-image: linear-gradient(180deg, #b2b2b2, #b2b2b2 50%, transparent 50%); }
   .bar.bar-positive {
@@ -4122,9 +4125,9 @@ a.subdued {
 .bar-stable .button {
   border-color: #b2b2b2;
   background-color: #f8f8f8;
-  color: #fff; }
+  color: #444; }
   .bar-stable .button:hover {
-    color: #fff;
+    color: #444;
     text-decoration: none; }
   .bar-stable .button.active, .bar-stable .button.activated {
     border-color: #a2a2a2;
@@ -4133,7 +4136,7 @@ a.subdued {
     border-color: transparent;
     background: none;
     box-shadow: none;
-    color: #fff;
+    color: #444;
     font-size: 17px; }
   .bar-stable .button.button-icon {
     border-color: transparent;
@@ -4362,7 +4365,7 @@ a.subdued {
   border-color: #b2b2b2;
   background-color: #f8f8f8;
   background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
-  color: #fff;
+  color: #444;
   position: absolute;
   bottom: 0;
   z-index: 5;
@@ -4373,7 +4376,7 @@ a.subdued {
   background-size: 0;
   line-height: 49px; }
   .tabs .tab-item .badge {
-    background-color: #fff;
+    background-color: #444;
     color: #f8f8f8; }
   @media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
     .tabs {
@@ -4401,10 +4404,10 @@ a.subdued {
   border-color: #b2b2b2;
   background-color: #f8f8f8;
   background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
-  color: #fff; }
+  color: #444; }
   .tabs-stable > .tabs .tab-item .badge,
   .tabs.tabs-stable .tab-item .badge {
-    background-color: #fff;
+    background-color: #444;
     color: #f8f8f8; }
 
 .tabs-positive > .tabs,
@@ -5759,7 +5762,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
   .item.item-stable {
     border-color: #b2b2b2;
     background-color: #f8f8f8;
-    color: #fff; }
+    color: #444; }
   .item.item-positive {
     border-color: #33597b;
     background-color: #42739F;
@@ -6055,7 +6058,7 @@ a.item-content {
 .item-complex.item-stable > .item-content {
   border-color: #b2b2b2;
   background-color: #f8f8f8;
-  color: #fff; }
+  color: #444; }
   .item-complex.item-stable > .item-content.active, .item-complex.item-stable > .item-content:active {
     border-color: #a2a2a2;
     background-color: #e5e5e5; }
@@ -6740,7 +6743,7 @@ button.item.item-button-right {
 .tabs .tab-item .badge.badge-stable,
 .badge.badge-stable {
   background-color: #f8f8f8;
-  color: #fff; }
+  color: #444; }
 
 .tabs .tab-item .badge.badge-positive,
 .badge.badge-positive {
@@ -8521,7 +8524,7 @@ input:checked + .checkbox-icon:after {
     color: #444; }
   .item-select.item-stable select {
     background: #f8f8f8;
-    color: #fff; }
+    color: #444; }
   .item-select.item-stable:after, .item-select.item-stable .input-label {
     color: #666666; }
   .item-select.item-positive select {
@@ -8579,7 +8582,7 @@ progress {
 .button {
   border-color: transparent;
   background-color: #f8f8f8;
-  color: #fff;
+  color: #444;
   position: relative;
   display: inline-block;
   margin: 0;
@@ -8596,7 +8599,7 @@ progress {
   line-height: 42px;
   cursor: pointer; }
   .button:hover {
-    color: #fff;
+    color: #444;
     text-decoration: none; }
   .button.active, .button.activated {
     border-color: #a2a2a2;
@@ -8658,9 +8661,9 @@ progress {
   .button.button-stable {
     border-color: transparent;
     background-color: #f8f8f8;
-    color: #fff; }
+    color: #444; }
     .button.button-stable:hover {
-      color: #fff;
+      color: #444;
       text-decoration: none; }
     .button.button-stable.active, .button.button-stable.activated {
       border-color: #a2a2a2;

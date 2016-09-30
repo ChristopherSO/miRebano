@@ -1,7 +1,7 @@
 ﻿<ion-view view-title="Eventos">
   <ion-content>
 	<ion-list>
-	  <ion-item class="item item-text-wrap" ng-repeat="event in events" href="#/app/events/{{event.id}}" ng-click="doSomething()">
+	  <ion-item class="item item-text-wrap" ng-repeat="event in events" href="#/app/events/{{event.id}}">
 		<a href="#/app/persons/{{event.person.id}}">{{event.person.getFullName()}}</a> tiene su {{event.type}} el <nobr>{{event.getDate() | date:'d-MMM-yyyy'}}</nobr>
 	  </ion-item>
 	</ion-list>

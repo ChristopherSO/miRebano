@@ -55,6 +55,7 @@
 	};
 })
 
-.controller('PersonDetailsCtrl', function ($scope, $stateParams, PersonService) {
+.controller('PersonDetailsCtrl', function ($scope, $stateParams, PersonService, EventService) {
 	$scope.person = PersonService.getPerson($stateParams.personId);
+	$scope.personsEvents = EventService.getPersonsEvents($stateParams.personId);
 });

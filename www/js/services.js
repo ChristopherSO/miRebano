@@ -62,9 +62,8 @@
 })
 
 .service('EventService', function (Event) {
-	return {
 
-		eventsData:  [
+	var eventsData = [
 			{
 				id: 1,
 				id_persona: 2,
@@ -76,7 +75,7 @@
 			{
 				id: 2,
 				id_persona: 2,
-				tipo: 'aniversario',
+				tipo: 'aniversario de bodas',
 				dia: 9,
 				mes: 12,
 				anio: 2011
@@ -89,11 +88,13 @@
 				mes: 2,
 				anio: 83
 			}
-		],
+	];
+
+	return {
 
 		getEvents: function () {
 			var events = [];
-			this.eventsData.forEach(function (event) {
+			eventsData.forEach(function (event) {
 				events.push(
 					new Event(
 						event.id,
@@ -114,6 +115,25 @@
 					return this.events[i];
 				}
 			}
+		},
+
+		getPersonsEvents: function (personId) {
+			var personsEvents = [];
+			eventsData.forEach(function (event) {
+				if (event.id_persona == personId) {
+					personsEvents.push(
+						new Event(
+							event.id,
+							event.id_persona,
+							event.tipo,
+							event.dia,
+							event.mes,
+							event.anio
+						)
+					);
+				}
+			})
+			return personsEvents;
 		}
 	}
 });
