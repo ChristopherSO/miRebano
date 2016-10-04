@@ -62,4 +62,9 @@
 
 .controller('ActivitiesCtrl', function ($scope, ActivityService) {
 	$scope.activities = ActivityService.getActivities();
+})
+
+.controller('AttendanceCtrl', function ($scope, $stateParams, ActivityService, AttendanceService) {
+	$scope.activity = ActivityService.getActivity($stateParams.activityId);
+	$scope.attendance = AttendanceService.getAttendance($stateParams.activityId);
 });

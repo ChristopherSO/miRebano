@@ -132,14 +132,6 @@
 			return events;
 		},
 
-		getEvent: function (eventId) {
-			for (i = 0; i < this.events.length; i++) {
-				if (this.events[i].id == eventId) {
-					return this.events[i];
-				}
-			}
-		},
-
 		getPersonsEvents: function (personId) {
 			var personsEvents = [];
 			eventsData.forEach(function (event) {
@@ -195,6 +187,85 @@
 				);
 			})
 			return activities;
+		},
+
+		getActivity: function (activityId) {
+			for (i = 0; i < activitiesData.length; i++) {
+				if (activitiesData[i].id == activityId) {
+					return new Activity(
+						activitiesData[i].id,
+						activitiesData[i].fecha
+					);
+				}
+			}
+		}
+	}
+})
+
+.service('AttendanceService', function (PersonService) {
+
+	var attendanceData = [
+		{
+			activity_id: 1,
+			person_id: 1
+		},
+		{
+			activity_id: 1,
+			person_id: 2
+		},
+		{
+			activity_id: 1,
+			person_id: 3
+		},
+		{
+			activity_id: 1,
+			person_id: 4
+		},
+		{
+			activity_id: 2,
+			person_id: 2
+		},
+		{
+			activity_id: 2,
+			person_id: 3
+		},
+		{
+			activity_id: 2,
+			person_id: 4
+		},
+		{
+			activity_id: 3,
+			person_id: 1
+		},
+		{
+			activity_id: 3,
+			person_id: 4
+		},
+		{
+			activity_id: 4,
+			person_id: 1
+		},
+		{
+			activity_id: 4,
+			person_id: 2
+		},
+		{
+			activity_id: 4,
+			person_id: 3
+		}
+	];
+
+	return {
+
+		getAttendance: function (activity_id) {
+			var persons = [];
+			attendanceData.forEach(function (item) {
+				if (item.activity_id == activity_id) {
+					var person = PersonService.getPerson(item.person_id);
+					persons.push(person);
+				}
+			})
+			return persons;
 		}
 	}
 });
