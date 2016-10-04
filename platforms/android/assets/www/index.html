@@ -6,14 +6,14 @@
 	<title></title>
 
 	<!--Import my custom Ionic css
-	<link href="lib/ionic/css/ionic.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet"> -->
 
-	<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above -->
+    <!-- compiled css output -->
 	<link href="css/ionic.app.css" rel="stylesheet">
 
+	<!-- Ionicons -->
+	<link href="lib/ionic/css/ionicons.css" rel="stylesheet" />
+
 	<!--For users deploying their apps to Windows 8.1 or Android Gingerbread, platformOverrided.js
-	will inject platform-specific code from the /merges folder -->
 	<script src="js/platformOverrides.js"></script>
 
 	<!-- ionic/angularjs js -->
@@ -28,9 +28,11 @@
 	<!-- your app's js -->
 	<script src="js/app.js"></script>
 	<script src="js/controllers.js"></script>
+  	<script src="js/services.js"></script>
+  	<script src="js/models.js"></script>
   </head>
 
-  <body ng-app="starter">
+  <body ng-app="starter" class="platform-android platform-cordova platform-webview">
 	<ion-nav-view></ion-nav-view>
   </body>
 </html>

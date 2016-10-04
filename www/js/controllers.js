@@ -44,7 +44,7 @@
 .controller('EventsCtrl', function ($scope, EventService) {
 	$scope.events = EventService.getEvents();
 	$scope.doSomething = function () {
-		console.log(new Date(2015,10,3));
+		console.log(new Date("2015/10/3"));
 	};
 })
 
@@ -58,4 +58,8 @@
 .controller('PersonDetailsCtrl', function ($scope, $stateParams, PersonService, EventService) {
 	$scope.person = PersonService.getPerson($stateParams.personId);
 	$scope.personsEvents = EventService.getPersonsEvents($stateParams.personId);
+})
+
+.controller('ActivitiesCtrl', function ($scope, ActivityService) {
+	$scope.activities = ActivityService.getActivities();
 });

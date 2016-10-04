@@ -1,7 +1,7 @@
 <ion-view view-title="Miembros">
 	<ion-content>
 		<ion-list>
-			<ion-item ng-repeat="person in persons" href="#/app/persons/{{person.id}}" ng-click="doSomething2()">
+			<ion-item ng-repeat="person in persons" href="#/app/persons/{{person.id}}">
 				{{person.getFullName()}}
 			</ion-item>
 		</ion-list>

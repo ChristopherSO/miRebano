@@ -52,23 +52,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 	}
 	})
 
-  .state('app.browse', {
-	  url: '/browse',
-	  views: {
-		'menuContent': {
-		  templateUrl: 'templates/browse.html'
-		}
-	  }
-	})
-
-  .state('app.single', {
-	url: '/playlists/:playlistId',
+  .state('app.person', {
+	url: '/persons/:personId',
 	views: {
 	  'menuContent': {
-		templateUrl: 'templates/playlist.html',
-		controller: 'PlaylistCtrl'
+		templateUrl: 'templates/personDetails.html',
+		controller: 'PersonDetailsCtrl'
 	  }
 	}
+  })
+
+  .state('app.activities', {
+  	url: '/activities',
+  	views: {
+  		'menuContent': {
+  			templateUrl: 'templates/activities.html',
+  			controller: 'ActivitiesCtrl'
+  		}
+  	}
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/events');

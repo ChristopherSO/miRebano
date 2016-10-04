@@ -52,15 +52,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 	}
 	})
 
-  .state('app.browse', {
-	  url: '/browse',
-	  views: {
-		'menuContent': {
-		  templateUrl: 'templates/browse.html'
-		}
-	  }
-	})
-
   .state('app.person', {
 	url: '/persons/:personId',
 	views: {
@@ -69,6 +60,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 		controller: 'PersonDetailsCtrl'
 	  }
 	}
+  })
+
+  .state('app.activities', {
+  	url: '/activities',
+  	views: {
+  		'menuContent': {
+  			templateUrl: 'templates/activities.html',
+  			controller: 'ActivitiesCtrl'
+  		}
+  	}
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/events');
