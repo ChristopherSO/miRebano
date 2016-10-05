@@ -4,13 +4,14 @@
 	/**
 	 * Constructor
 	 */
-	function Person(id, firstName, lastName1, lastName2, gender) {
+	function Person(id, firstName, lastName1, lastName2, gender, pic) {
 		// Public properties, assigned to the instance ('this')
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName1 = lastName1;
 		this.lastName2 = lastName2;
 		this.gender = gender;
+		this.pic = pic;
 	}
 
 	/**

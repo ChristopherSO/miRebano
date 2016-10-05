@@ -9,28 +9,32 @@
 				nombre: 'Tonny',
 				apellido1: 'Obando',
 				apellido2: 'Jara',
-				genero: 'M'
+				genero: 'M',
+				foto: "Tonny.png"
 			},
 			{
 				id: 2,
 				nombre: 'Hellen',
 				apellido1: 'Ríos',
 				apellido2: 'Araya',
-				genero: 'F'
+				genero: 'F',
+				foto: "Hellen.png"
 			},
 			{
 				id: 3,
 				nombre: 'Christopher',
 				apellido1: 'Suárez',
 				apellido2: 'Ortíz',
-				genero: 'M'
+				genero: 'M',
+				foto: "Christopher.png"
 			},
 			{
 				id: 4,
 				nombre: 'Ester',
 				apellido1: 'Salas',
 				apellido2: 'Sánchez',
-				genero: 'F'
+				genero: 'F',
+				foto: "Ester.png"
 			}
 		],
 
@@ -43,7 +47,8 @@
 						person.nombre,
 						person.apellido1,
 						person.apellido2,
-						person.genero
+						person.genero,
+						person.foto
 					)
 				);
 			})
@@ -59,7 +64,8 @@
 						person.nombre,
 						person.apellido1,
 						person.apellido2,
-						person.genero
+						person.genero,
+						person.foto
 					);
 				}
 			}

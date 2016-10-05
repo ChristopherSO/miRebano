@@ -22,7 +22,7 @@ var onError = function (err) {
 gulp.task('default', ['sass']);
 
 gulp.task('sass', function(done) {
-    gulp.src('scss/ionic.app.scss')
+    gulp.src('www/scss/ionic.app.scss')
     .pipe(plumber({ errorHandler: onError }))
     .pipe(sass())
     .on('error', sass.logError)
