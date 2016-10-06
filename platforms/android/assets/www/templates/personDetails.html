@@ -1,7 +1,7 @@
 ﻿<ion-view view-title="Detalles del miembro">
 	<ion-content class="padding">
 		<div class="subheader item-thumbnail-left">
-			<img src="img/{{person.pic }}" />
+			<img ng-src="img/{{person.pic }}" />
 			<h2>{{ person.getFullName() }}</h2>
 			<i ng-if="person.gender" ng-class="{'ion-male': person.gender=='M', 'ion-female': person.gender=='F'}" class="icon"></i>
 		</div>

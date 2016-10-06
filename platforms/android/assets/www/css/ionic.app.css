@@ -36,6 +36,12 @@ ion-item a {
 .subheader i.ion-female {
   color: #FF80C0; }
 
+#persons .item-content {
+  min-height: 0 !important; }
+
+#persons .item-content img {
+  top: 6px; }
+
 .card .item h2 {
   font-weight: bold; }
 

@@ -83,4 +83,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/events');
+})
+
+.config(function ($ionicConfigProvider) {
+	$ionicConfigProvider.views.maxCache(5);
+
+	// Change back button text
+	$ionicConfigProvider.backButton.text('Atrás');
 });

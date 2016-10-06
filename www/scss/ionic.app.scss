@@ -45,6 +45,29 @@ ion-item a {
 	color: #FF80C0;
 }
 
+.item-user .item-content {
+	  padding-left: 72px !important;
+}
+
+.item-user img {
+	position: absolute;
+	top: 6px;
+	left: 16px;
+	max-width: 40px;
+	max-height: 40px;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
+#persons a.item-content {
+	min-height: 0;
+}
+
+#persons .item-content img {
+	top: 6px;
+}
+
 .card .item h2 {
 	font-weight: bold;
 }

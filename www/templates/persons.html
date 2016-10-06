@@ -1,7 +1,8 @@
 <ion-view view-title="Miembros">
 	<ion-content>
 		<ion-list>
-			<ion-item ng-repeat="person in persons" href="#/app/persons/{{person.id}}">
+			<ion-item ng-repeat="person in persons" href="#/app/persons/{{person.id}}" class="item-user">
+				<img ng-src="img/{{person.pic}}" />
 				{{person.getFullName()}}
 			</ion-item>
 		</ion-list>

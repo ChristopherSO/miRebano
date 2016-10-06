@@ -302,5 +302,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+platforms/
 resources/
 copias/
