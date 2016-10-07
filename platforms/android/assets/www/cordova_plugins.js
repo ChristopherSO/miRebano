@@ -39,6 +39,6 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "3.2.2",
     "cordova-plugin-statusbar": "2.1.3",
     "ionic-plugin-keyboard": "2.2.1"
-}
+};
 // BOTTOM OF METADATA
 });
