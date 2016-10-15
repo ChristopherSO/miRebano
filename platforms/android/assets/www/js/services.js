@@ -81,6 +81,7 @@
 				id: 1,
 				id_persona: 2,
 				tipo: 'cumpleaños',
+				icono: 'icon-birthday-cake',
 				dia: 3,
 				mes: 10,
 				anio: 0
@@ -89,6 +90,7 @@
 				id: 2,
 				id_persona: 2,
 				tipo: 'aniversario de bodas',
+				icono: 'icon-interlocking-rings',
 				dia: 9,
 				mes: 12,
 				anio: 2011
@@ -97,6 +99,7 @@
 				id: 3,
 				id_persona: 3,
 				tipo: 'cumpleaños',
+				icono: 'icon-birthday-cake',
 				dia: 15,
 				mes: 2,
 				anio: 1983
@@ -105,6 +108,7 @@
 				id: 4,
 				id_persona: 4,
 				tipo: 'cumpleaños',
+				icono: 'icon-birthday-cake',
 				dia: 25,
 				mes: 6,
 				anio: 1994
@@ -113,6 +117,7 @@
 				id: 5,
 				id_persona: 1,
 				tipo: 'cumpleaños',
+				icono: 'icon-birthday-cake',
 				dia: 9,
 				mes: 12,
 				anio: 1989
@@ -129,6 +134,7 @@
 						event.id,
 						event.id_persona,
 						event.tipo,
+						event.icono,
 						event.dia,
 						event.mes,
 						event.anio
@@ -147,6 +153,7 @@
 							event.id,
 							event.id_persona,
 							event.tipo,
+							event.icono,
 							event.dia,
 							event.mes,
 							event.anio

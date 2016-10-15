@@ -46,11 +46,12 @@
 	/**
 	 * Constructor
 	 */
-	function Event(id, personId, type, day, month, year) {
+	function Event(id, personId, type, icon, day, month, year) {
 		// Public properties, assigned to the instance ('this')
 		this.id = id;
 		this.person = PersonService.getPerson(personId);
 		this.type = type;
+		this.icon = icon;
 		this.day = day;
 		this.month = month;
 		this.year = year;
