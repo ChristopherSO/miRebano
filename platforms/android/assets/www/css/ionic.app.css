@@ -59,25 +59,12 @@ ion-item a {
   margin-left: 10px;
   margin-right: 10px; }
 
-.item-user .item-content {
-  padding-left: 72px !important; }
-
-.item-user img {
-  position: absolute;
-  top: 6px;
-  left: 16px;
-  max-width: 40px;
-  max-height: 40px;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%; }
-
 .item-user-event .item-content {
   padding-left: 88px !important; }
 
 .item-user-event img.pic {
   position: absolute;
-  top: 12px;
+  top: 11px;
   left: 15px;
   max-width: 50px;
   max-height: 50px;
@@ -85,31 +72,29 @@ ion-item a {
   height: 100%;
   border-radius: 50%; }
 
-/*
-.item-user-event img.icon {
-	position: absolute;
-	top: 15px;
-	left: 16px;
-	max-width: 40px;
-	max-height: 40px;
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-}
-*/
 .item-user-event i {
   position: absolute;
-  top: 38px;
+  top: 37px;
   left: 50px;
   font-size: 24px;
   color: #42739F;
   text-shadow: -3px  0   1px white, -2px  2px 1px white, 0    3px 1px white, 2px  2px 1px white, 3px  0   1px white, 2px -2px 1px white, 0   -3px 1px white, -2px -2px 1px white; }
 
-#persons a.item-content {
-  min-height: 0; }
+.item-user .item-content {
+  padding-left: 80px !important; }
 
-#persons .item-content img {
-  top: 6px; }
+.item-user a.item-content {
+  padding: 21px 0 21px 16px; }
+
+.item-user img {
+  position: absolute;
+  top: 6px;
+  left: 16px;
+  max-width: 50px;
+  max-height: 50px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; }
 
 .card .item h2 {
   font-weight: bold; }
