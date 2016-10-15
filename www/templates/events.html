@@ -3,6 +3,7 @@
 	<ion-list>
 	  <ion-item class="item item-text-wrap item-user-event" ng-repeat="event in events" href="#/app/events/{{event.id}}">
 		<img class="pic" ng-src="img/{{event.person.pic}}" />
+		<i class="{{event.icon}}"></i>
 		<a href="#/app/persons/{{event.person.id}}">{{event.person.getFullName()}}</a> tiene su {{event.type}} el <nobr>{{event.getDate() | date:"d 'de' MMMM"}}</nobr>
 		<nobr ng-if="event.year>0">(Cumple {{event.getYearsToMeet()}} años)</nobr>
 	  </ion-item>
