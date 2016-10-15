@@ -109,12 +109,16 @@ ion-item a {
 }
 
 .item-user a.item-content {
-	padding: 21px 0 21px 16px;
+	padding: 12px 0 12px 16px;
+}
+
+.item-user .item-content h2 {
+	font-weight: bold;
 }
 
 .item-user img {
 	position: absolute;
-	top: 6px;
+	top: 7px;
 	left: 15px;
 	max-width: 50px;
 	max-height: 50px;
@@ -125,6 +129,10 @@ ion-item a {
 
 .card .item h2 {
 	font-weight: bold;
+}
+
+.subheader-user h2 {
+	margin-bottom: 6px;
 }
 
 // The path for our ionicons font files, relative to the built CSS in www/css

@@ -10,7 +10,8 @@
 				apellido1: 'Obando',
 				apellido2: 'Jara',
 				genero: 'M',
-				foto: "Tonny.png"
+				foto: "Tonny.png",
+				miembroNivel: "Líder"
 			},
 			{
 				id: 2,
@@ -18,7 +19,8 @@
 				apellido1: 'Ríos',
 				apellido2: 'Araya',
 				genero: 'F',
-				foto: "Hellen.png"
+				foto: "Hellen.png",
+				miembroNivel: "Líder"
 			},
 			{
 				id: 3,
@@ -26,7 +28,8 @@
 				apellido1: 'Suárez',
 				apellido2: 'Ortíz',
 				genero: 'M',
-				foto: "Christopher.png"
+				foto: "Christopher.png",
+				miembroNivel: "Líder"
 			},
 			{
 				id: 4,
@@ -34,7 +37,8 @@
 				apellido1: 'Salas',
 				apellido2: 'Sánchez',
 				genero: 'F',
-				foto: "Ester.png"
+				foto: "Ester.png",
+				miembroNivel: "Servidora"
 			}
 		],
 
@@ -48,7 +52,8 @@
 						person.apellido1,
 						person.apellido2,
 						person.genero,
-						person.foto
+						person.foto,
+						person.miembroNivel
 					)
 				);
 			})
@@ -65,7 +70,8 @@
 						person.apellido1,
 						person.apellido2,
 						person.genero,
-						person.foto
+						person.foto,
+						person.miembroNivel
 					);
 				}
 			}

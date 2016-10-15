@@ -4,7 +4,7 @@
 	/**
 	 * Constructor
 	 */
-	function Person(id, firstName, lastName1, lastName2, gender, pic) {
+	function Person(id, firstName, lastName1, lastName2, gender, pic, memberLevel) {
 		// Public properties, assigned to the instance ('this')
 		this.id = id;
 		this.firstName = firstName;
@@ -12,6 +12,7 @@
 		this.lastName2 = lastName2;
 		this.gender = gender;
 		this.pic = pic;
+		this.memberLevel = memberLevel;
 	}
 
 	/**
