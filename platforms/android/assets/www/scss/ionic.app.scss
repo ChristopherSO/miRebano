@@ -74,6 +74,7 @@ ion-item a {
 
 .item-user-event .item-content {
 	  padding-left: 88px !important;
+	  min-height: 72px;
 }
 
 .item-user-event img.pic {
@@ -129,6 +130,10 @@ ion-item a {
 
 .card .item h2 {
 	font-weight: bold;
+}
+
+.subheader-user h2 {
+	margin-bottom: 6px;
 }
 
 // The path for our ionicons font files, relative to the built CSS in www/css

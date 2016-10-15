@@ -1,10 +1,8 @@
 <ion-view id="persons" view-title="Miembros">
 	<ion-content>
 		<ion-list>
-			<ion-item ng-repeat="person in persons" href="#/app/persons/{{person.id}}" class="item-user">
-				<img ng-src="img/{{person.pic}}" />
-				<h2>{{person.getFullName()}}</h2>
-				<p>{{person.memberLevel}}</p>
+			<ion-item class="item-user" ng-repeat="person in persons" href="#/app/persons/{{person.id}}">
+				<ng-include src="'templates/personItem.html'"></ng-include>
 			</ion-item>
 		</ion-list>
 	</ion-content>

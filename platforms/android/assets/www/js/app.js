@@ -23,14 +23,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
+	$stateProvider
 
 	.state('app', {
-	url: '/app',
-	abstract: true,
-	templateUrl: 'templates/menu.html',
-	controller: 'AppCtrl'
-  })
+		url: '/app',
+		abstract: true,
+		templateUrl: 'templates/menu.html',
+		controller: 'AppCtrl'
+	})
 
 	.state('app.events', {
 		url: '/events',
@@ -43,44 +43,45 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 	})
 
 	.state('app.persons', {
-	url: '/persons',
-	views: {
-		'menuContent': {
-			templateUrl: 'templates/persons.html',
-			controller: 'PersonsCtrl'
+		url: '/persons',
+		views: {
+			'menuContent': {
+				templateUrl: 'templates/persons.html',
+				controller: 'PersonsCtrl'
+			}
 		}
-	}
 	})
 
-  .state('app.person', {
-	url: '/persons/:personId',
-	views: {
-	  'menuContent': {
-		templateUrl: 'templates/personDetails.html',
-		controller: 'PersonDetailsCtrl'
-	  }
-	}
-  })
+	.state('app.person', {
+		url: '/persons/:personId',
+		views: {
+			'menuContent': {
+				templateUrl: 'templates/personDetails.html',
+				controller: 'PersonDetailsCtrl'
+			}
+		}
+	})
 
-  .state('app.activities', {
-  	url: '/activities',
-  	views: {
-  		'menuContent': {
-  			templateUrl: 'templates/activities.html',
-  			controller: 'ActivitiesCtrl'
-  		}
-  	}
-  })
+	.state('app.activities', {
+		url: '/activities',
+		views: {
+			'menuContent': {
+				templateUrl: 'templates/activities.html',
+				controller: 'ActivitiesCtrl'
+			}
+		}
+	})
 
-  .state('app.attendance', {
-  	url: '/attendance/:activityId',
-  	views: {
-  		'menuContent': {
-  			templateUrl: 'templates/attendance.html',
-  			controller: 'AttendanceCtrl'
-  		}
-  	}
-  });
+	.state('app.attendance', {
+		url: '/attendance/:activityId',
+		views: {
+			'menuContent': {
+				templateUrl: 'templates/attendance.html',
+				controller: 'AttendanceCtrl'
+			}
+		}
+	});
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/events');
 })

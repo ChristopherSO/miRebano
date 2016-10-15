@@ -60,7 +60,8 @@ ion-item a {
   margin-right: 10px; }
 
 .item-user-event .item-content {
-  padding-left: 88px !important; }
+  padding-left: 88px !important;
+  min-height: 72px; }
 
 .item-user-event img.pic {
   position: absolute;

@@ -5,8 +5,7 @@
 	<ion-content class="has-subheader">
 		<ion-list>
 			<ion-item class="item-user" ng-repeat="person in attendance" href="#/app/persons/{{person.id}}">
-				<img ng-src="img/{{person.pic}}" />
-				{{person.getFullName()}}
+				<ng-include src="'templates/personItem.html'"></ng-include>
 			</ion-item>
 		</ion-list>
 	</ion-content>
