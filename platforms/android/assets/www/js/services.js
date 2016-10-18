@@ -318,6 +318,7 @@
 	var provinces = {};
 	var cantons = {};
 	var districts = {};
+	var neighborhoods = {};
 
 	$http.get('lib/json/provincias.json').then(function (response) {
 		provinces = response.data;
@@ -329,6 +330,10 @@
 
 	$http.get('lib/json/distritos.json').then(function (response) {
 		districts = response.data;
+	});
+
+	$http.get('lib/json/barrios.json').then(function (response) {
+		neighborhoods = response.data;
 	});
 
 	return {
@@ -345,11 +350,33 @@
 			return districts[province_id][canton_id][district_id];
 		},
 
-		getLocation: function (province_id, canton_id, district_id) {
-			var location =
-				provinces[province_id] + ", " +
-				cantons[province_id][canton_id] + ", " +
-				districts[province_id][canton_id][district_id];
+		getNeighborhood: function (province_id, canton_id, district_id, neighborhood_id) {
+			return districts[province_id][canton_id][district_id][neighborhood_id];
+		},
+
+		getLocation: function (province_id, canton_id, district_id, neighborhood_id) {
+			var location = "";
+
+			if (province_id != 0) {
+				location = provinces[province_id];
+				if (canton_id != 0) {
+					location += ", "
+						+ cantons[province_id][canton_id];
+					if (district_id != 0) {
+						if (district_id != 1) {
+							location += ", "
+								+ districts[province_id][canton_id][district_id];
+						}
+						if (neighborhood_id != 0) {
+							location += ", "
+								+ neighborhoods[province_id][canton_id][district_id][neighborhood_id];
+						}
+					}
+				}
+			} else {
+				location += "Pendiente de registrar";
+			}
+			
 			return location;
 		}
 	};

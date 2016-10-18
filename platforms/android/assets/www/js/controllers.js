@@ -58,7 +58,7 @@
 .controller('PersonDetailsCtrl', function ($scope, $stateParams, PersonService, EventService, LocationService) {
 	$scope.person = PersonService.getPerson($stateParams.personId);
 	$scope.personsEvents = EventService.getPersonsEvents($stateParams.personId);
-	$scope.personsLocation = LocationService.getLocation($scope.person.province, $scope.person.canton, $scope.person.district);
+	$scope.personsLocation = LocationService.getLocation($scope.person.province, $scope.person.canton, $scope.person.district, $scope.person.neighborhood);
 })
 
 .controller('ActivitiesCtrl', function ($scope, ActivityService) {
