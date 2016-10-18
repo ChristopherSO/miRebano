@@ -1,6 +1,6 @@
 ﻿angular.module('starter.controllers', ['starter.services'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout, LocationService) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -55,9 +55,10 @@
 	};
 })
 
-.controller('PersonDetailsCtrl', function ($scope, $stateParams, PersonService, EventService) {
+.controller('PersonDetailsCtrl', function ($scope, $stateParams, PersonService, EventService, LocationService) {
 	$scope.person = PersonService.getPerson($stateParams.personId);
 	$scope.personsEvents = EventService.getPersonsEvents($stateParams.personId);
+	$scope.personsLocation = LocationService.getLocation($scope.person.province, $scope.person.canton, $scope.person.district);
 })
 
 .controller('ActivitiesCtrl', function ($scope, ActivityService) {

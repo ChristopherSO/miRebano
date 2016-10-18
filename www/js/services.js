@@ -11,7 +11,11 @@
 				apellido2: 'Jara',
 				genero: 'M',
 				foto: "Tonny.png",
-				miembroNivel: "Líder"
+				miembroNivel: "Líder",
+				provincia: 1,
+				canton: 3,
+				distrito: 1,
+				barrio: 1
 			},
 			{
 				id: 2,
@@ -20,7 +24,11 @@
 				apellido2: 'Araya',
 				genero: 'F',
 				foto: "Hellen.png",
-				miembroNivel: "Líder"
+				miembroNivel: "Líder",
+				provincia: 1,
+				canton: 3,
+				distrito: 4,
+				barrio: 0
 			},
 			{
 				id: 3,
@@ -29,7 +37,11 @@
 				apellido2: 'Ortíz',
 				genero: 'M',
 				foto: "Christopher.png",
-				miembroNivel: "Líder"
+				miembroNivel: "Líder",
+				provincia: 1,
+				canton: 3,
+				distrito: 4,
+				barrio: 0
 			},
 			{
 				id: 4,
@@ -38,7 +50,11 @@
 				apellido2: 'Sánchez',
 				genero: 'F',
 				foto: "Ester.png",
-				miembroNivel: "Servidora"
+				miembroNivel: "Servidora",
+				provincia: 1,
+				canton: 3,
+				distrito: 1,
+				barrio: 1
 			}
 		],
 
@@ -53,7 +69,11 @@
 						person.apellido2,
 						person.genero,
 						person.foto,
-						person.miembroNivel
+						person.miembroNivel,
+						person.provincia,
+						person.canton,
+						person.distrito,
+						person.barrio
 					)
 				);
 			})
@@ -71,7 +91,11 @@
 						person.apellido2,
 						person.genero,
 						person.foto,
-						person.miembroNivel
+						person.miembroNivel,
+						person.provincia,
+						person.canton,
+						person.distrito,
+						person.barrio
 					);
 				}
 			}
@@ -287,4 +311,47 @@
 			return persons;
 		}
 	}
+})
+
+.service('LocationService', function ($http) {
+	
+	var provinces = {};
+	var cantons = {};
+	var districts = {};
+
+	$http.get('lib/json/provincias.json').then(function (response) {
+		provinces = response.data;
+	});
+
+	$http.get('lib/json/cantones.json').then(function (response) {
+		cantons = response.data;
+	});
+
+	$http.get('lib/json/distritos.json').then(function (response) {
+		districts = response.data;
+	});
+
+	return {
+
+		getProvince: function (province_id) {
+			return provinces[province_id];
+		},
+
+		getCanton: function (province_id, canton_id) {
+			return cantons[province_id][canton_id];
+		},
+
+		getProvince: function (province_id, canton_id, district_id) {
+			return districts[province_id][canton_id][district_id];
+		},
+
+		getLocation: function (province_id, canton_id, district_id) {
+			var location =
+				provinces[province_id] + ", " +
+				cantons[province_id][canton_id] + ", " +
+				districts[province_id][canton_id][district_id];
+			console.log(provinces[99]);
+			return location;
+		}
+	};
 });
