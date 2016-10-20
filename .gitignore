@@ -302,6 +302,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-platforms/
+platforms/android/
 resources/
 copias/
