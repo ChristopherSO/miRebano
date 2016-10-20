@@ -22,10 +22,6 @@ $positive: #42739F !default;
 	padding: 10px !important;
 }
 
-ion-item a {
-	text-decoration: none;
-}
-
 .capitalize::first-letter {
    text-transform: capitalize;
 }
@@ -72,9 +68,13 @@ ion-item a {
 	margin-right: 10px;
 }
 
-.item-user-event .item-content {
+.item-user-event {
 	  padding-left: 88px !important;
 	  min-height: 72px;
+}
+
+.item-user-event a {
+	text-decoration: none;
 }
 
 .item-user-event img.pic {
