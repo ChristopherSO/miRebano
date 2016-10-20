@@ -54,13 +54,28 @@
 	function Event(id, personId, type, icon, day, month, year) {
 		// Public properties, assigned to the instance ('this')
 		this.id = id;
-		this.person = PersonService.getPerson(personId);
+		this.personId = personId;
 		this.type = type;
 		this.icon = icon;
 		this.day = day;
 		this.month = month;
 		this.year = year;
 	}
+
+	/**
+	 * Private property
+	 */
+	var person = undefined;
+
+	/**
+	 * Public method, assigned to prototype
+	 */
+	Event.prototype.getPerson = function (personId) {
+		if (this.person == undefined) {
+			this.person = PersonService.getPerson(personId);
+		}
+		return this.person;
+	};
 
 	/**
 	 * Public method, assigned to prototype

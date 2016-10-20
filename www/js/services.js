@@ -1,66 +1,18 @@
 ﻿angular.module('starter.services', ['starter.models'])
 
-.service('PersonService', function (Person) {
-	return {
+.service('PersonService', function (Person, $http) {
 
-		personsData: [
-			{
-				id: 1,
-				nombre: 'Tonny',
-				apellido1: 'Obando',
-				apellido2: 'Jara',
-				genero: 'M',
-				foto: "Tonny.png",
-				miembroNivel: "Líder",
-				provincia: 1,
-				canton: 3,
-				distrito: 1,
-				barrio: 1
-			},
-			{
-				id: 2,
-				nombre: 'Hellen',
-				apellido1: 'Ríos',
-				apellido2: 'Araya',
-				genero: 'F',
-				foto: "Hellen.png",
-				miembroNivel: "Líder",
-				provincia: 1,
-				canton: 3,
-				distrito: 4,
-				barrio: 0
-			},
-			{
-				id: 3,
-				nombre: 'Christopher',
-				apellido1: 'Suárez',
-				apellido2: 'Ortíz',
-				genero: 'M',
-				foto: "Christopher.png",
-				miembroNivel: "Líder",
-				provincia: 1,
-				canton: 3,
-				distrito: 4,
-				barrio: 0
-			},
-			{
-				id: 4,
-				nombre: 'Ester',
-				apellido1: 'Salas',
-				apellido2: 'Sánchez',
-				genero: 'F',
-				foto: "Ester.png",
-				miembroNivel: "Servidora",
-				provincia: 1,
-				canton: 3,
-				distrito: 1,
-				barrio: 1
-			}
-		],
+	var personsData = {};
+
+	$http.get('json/persons.json').then(function (response) {
+		personsData = response.data;
+	});
+
+	return {
 
 		getPersons: function () {
 			var persons = [];
-			this.personsData.forEach(function (person) {
+			personsData.forEach(function (person) {
 				persons.push(
 					new Person(
 						person.id,
@@ -81,9 +33,9 @@
 		},
 
 		getPerson: function (personId) {
-			for (i = 0; i < this.personsData.length; i++) {
-				if (this.personsData[i].id == personId) {
-					var person = this.personsData[i];
+			for (i = 0; i < personsData.length; i++) {
+				if (personsData[i].id == personId) {
+					var person = personsData[i];
 					return new Person(
 						person.id,
 						person.nombre,
@@ -163,6 +115,7 @@
 					new Event(
 						event.id,
 						event.id_persona,
+						//PersonService.getPerson(event.id_persona),
 						event.tipo,
 						event.icono,
 						event.dia,
@@ -170,7 +123,7 @@
 						event.anio
 					)
 				);
-			})
+			});
 			return events;
 		},
 
@@ -182,6 +135,7 @@
 						new Event(
 							event.id,
 							event.id_persona,
+							//PersonService.getPerson(event.id_persona),
 							event.tipo,
 							event.icono,
 							event.dia,
@@ -320,19 +274,19 @@
 	var districts = {};
 	var neighborhoods = {};
 
-	$http.get('lib/json/provincias.json').then(function (response) {
+	$http.get('json/provincias.json').then(function (response) {
 		provinces = response.data;
 	});
 
-	$http.get('lib/json/cantones.json').then(function (response) {
+	$http.get('json/cantones.json').then(function (response) {
 		cantons = response.data;
 	});
 
-	$http.get('lib/json/distritos.json').then(function (response) {
+	$http.get('json/distritos.json').then(function (response) {
 		districts = response.data;
 	});
 
-	$http.get('lib/json/barrios.json').then(function (response) {
+	$http.get('json/barrios.json').then(function (response) {
 		neighborhoods = response.data;
 	});
 
