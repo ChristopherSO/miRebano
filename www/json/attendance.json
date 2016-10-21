@@ -1,0 +1,50 @@
+[
+	{
+		"activity_id": 1,
+		"person_id": 1
+	},
+	{
+		"activity_id": 1,
+		"person_id": 2
+	},
+	{
+		"activity_id": 1,
+		"person_id": 3
+	},
+	{
+		"activity_id": 1,
+		"person_id": 4
+	},
+	{
+		"activity_id": 2,
+		"person_id": 2
+	},
+	{
+		"activity_id": 2,
+		"person_id": 3
+	},
+	{
+		"activity_id": 2,
+		"person_id": 4
+	},
+	{
+		"activity_id": 3,
+		"person_id": 1
+	},
+	{
+		"activity_id": 3,
+		"person_id": 4
+	},
+	{
+		"activity_id": 4,
+		"person_id": 1
+	},
+	{
+		"activity_id": 4,
+		"person_id": 2
+	},
+	{
+		"activity_id": 4,
+		"person_id": 3
+	}
+]

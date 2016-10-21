@@ -1,12 +1,12 @@
 ﻿<ion-view view-title="Eventos">
-  <ion-content>
-  	<div class="card" ng-repeat="event in events">
-	  	<div class="item item-text-wrap item-user-event">
-			<img class="pic" ng-src="img/{{event.getPerson(event.personId).pic}}" />
-			<i class="{{event.icon}}"></i>
-			<a href="#/app/persons/{{event.personId}}">{{event.getPerson(event.personId).getFullName()}}</a> tiene su {{event.type}} el <nobr>{{event.getDate() | date:"d 'de' MMMM"}}</nobr>
-			<nobr ng-if="event.year>0">(Cumple {{event.getYearsToMeet()}} años)</nobr>
-	  	</div>
-  	</div>
-</ion-content>
+	<ion-content>
+  		<div class="card" ng-repeat="event in events">
+	  		<div class="item item-text-wrap item-user-event">
+				<img class="pic" ng-src="img/{{event.getPerson(event.personId).pic}}" />
+				<i class="{{event.icon}}"></i>
+				<a href="#/app/persons/{{event.personId}}">{{event.getPerson(event.personId).getFullName()}}</a> tiene su {{event.type}} el <nobr>{{event.getDate() | date:"d 'de' MMMM"}}</nobr>
+				<nobr ng-if="event.year>0">(Cumple {{event.getYearsToMeet()}} años)</nobr>
+	  		</div>
+  		</div>
+	</ion-content>
 </ion-view>

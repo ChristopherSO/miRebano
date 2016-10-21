@@ -1,6 +1,6 @@
 ﻿angular.module('starter.controllers', ['starter.services'])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout, LocationService) {
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -42,6 +42,9 @@
 })
 
 .controller('EventsCtrl', function ($scope, EventService) {
+	//EventService.loadEvents().then(function () {
+	//	console.log("2", "Terminó de cargar la lista de eventos");
+	//});
 	$scope.events = EventService.getEvents();
 	$scope.doSomething = function () {
 		console.log(new Date("2015/10/3"));

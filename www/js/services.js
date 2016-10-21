@@ -1,14 +1,16 @@
 ﻿angular.module('starter.services', ['starter.models'])
 
 .service('PersonService', function (Person, $http) {
-
+	
 	var personsData = {};
 
-	$http.get('json/persons.json').then(function (response) {
-		personsData = response.data;
-	});
-
 	return {
+
+		loadPersons: function () {
+			return $http.get('json/persons.json').then(function (response) {
+				personsData = response.data;
+			});
+		},
 
 		getPersons: function () {
 			var persons = [];
@@ -56,57 +58,17 @@
 	}
 })
 
-.service('EventService', function (Event) {
-
-	var eventsData = [
-			{
-				id: 1,
-				id_persona: 2,
-				tipo: 'cumpleaños',
-				icono: 'icon-birthday-cake',
-				dia: 3,
-				mes: 10,
-				anio: 0
-			},
-			{
-				id: 2,
-				id_persona: 2,
-				tipo: 'aniversario de bodas',
-				icono: 'icon-interlocking-rings',
-				dia: 9,
-				mes: 12,
-				anio: 2011
-			},
-			{
-				id: 3,
-				id_persona: 3,
-				tipo: 'cumpleaños',
-				icono: 'icon-birthday-cake',
-				dia: 15,
-				mes: 2,
-				anio: 1983
-			},
-			{
-				id: 4,
-				id_persona: 4,
-				tipo: 'cumpleaños',
-				icono: 'icon-birthday-cake',
-				dia: 25,
-				mes: 6,
-				anio: 1994
-			},
-			{
-				id: 5,
-				id_persona: 1,
-				tipo: 'cumpleaños',
-				icono: 'icon-birthday-cake',
-				dia: 9,
-				mes: 12,
-				anio: 1989
-			}
-	];
+.service('EventService', function (Event, $http) {
+	
+	var eventsData = [];
 
 	return {
+
+		loadEvents: function () {
+			return $http.get('json/events.json').then(function (response) {
+				eventsData = response.data;
+			});
+		},
 
 		getEvents: function () {
 			var events = [];
@@ -150,28 +112,17 @@
 	}
 })
 
-.service('ActivityService', function (Activity) {
-
-	var activitiesData = [ // fecha en yyyy/m/d
-			{
-				id: 1,
-				fecha: "2016/10/1" // sábado
-			},
-			{
-				id: 2,
-				fecha: "2016/10/2" // domingo
-			},
-			{
-				id: 3,
-				fecha: "2016/10/4" // martes
-			},
-			{
-				id: 4,
-				fecha: "2016/10/6" // jueves
-			}
-	];
+.service('ActivityService', function (Activity, $http) {
+	
+	var activitiesData = [];  // fecha en yyyy/m/d
 
 	return {
+
+		loadActivities: function () {
+			return $http.get('json/activities.json').then(function (response) {
+				activitiesData = response.data;
+			});
+		},
 
 		getActivities: function () {
 			var activities = [];
@@ -199,60 +150,17 @@
 	}
 })
 
-.service('AttendanceService', function (PersonService) {
-
-	var attendanceData = [
-		{
-			activity_id: 1,
-			person_id: 1
-		},
-		{
-			activity_id: 1,
-			person_id: 2
-		},
-		{
-			activity_id: 1,
-			person_id: 3
-		},
-		{
-			activity_id: 1,
-			person_id: 4
-		},
-		{
-			activity_id: 2,
-			person_id: 2
-		},
-		{
-			activity_id: 2,
-			person_id: 3
-		},
-		{
-			activity_id: 2,
-			person_id: 4
-		},
-		{
-			activity_id: 3,
-			person_id: 1
-		},
-		{
-			activity_id: 3,
-			person_id: 4
-		},
-		{
-			activity_id: 4,
-			person_id: 1
-		},
-		{
-			activity_id: 4,
-			person_id: 2
-		},
-		{
-			activity_id: 4,
-			person_id: 3
-		}
-	];
+.service('AttendanceService', function (PersonService, $http) {
+	
+	var attendanceData = [];
 
 	return {
+
+		loadAttendance: function () {
+			return $http.get('json/attendance.json').then(function (response) {
+				attendanceData = response.data;
+			});
+		},
 
 		getAttendance: function (activity_id) {
 			var persons = [];
@@ -274,23 +182,31 @@
 	var districts = {};
 	var neighborhoods = {};
 
-	$http.get('json/provincias.json').then(function (response) {
-		provinces = response.data;
-	});
-
-	$http.get('json/cantones.json').then(function (response) {
-		cantons = response.data;
-	});
-
-	$http.get('json/distritos.json').then(function (response) {
-		districts = response.data;
-	});
-
-	$http.get('json/barrios.json').then(function (response) {
-		neighborhoods = response.data;
-	});
-
 	return {
+
+		loadProvinces: function () {
+			return $http.get('json/provincias.json').then(function (response) {
+				provinces = response.data;
+			});
+		},
+
+		loadCantons: function () {
+			return $http.get('json/cantones.json').then(function (response) {
+				cantons = response.data;
+			});
+		},
+
+		loadDistricts: function () {
+			return $http.get('json/distritos.json').then(function (response) {
+				districts = response.data;
+			});
+		},
+
+		loadNeighborhoods: function () {
+			return $http.get('json/barrios.json').then(function (response) {
+				neighborhoods = response.data;
+			});
+		},
 
 		getProvince: function (province_id) {
 			return provinces[province_id];
@@ -309,6 +225,7 @@
 		},
 
 		getLocation: function (province_id, canton_id, district_id, neighborhood_id) {
+
 			var location = "";
 
 			if (province_id != 0) {
