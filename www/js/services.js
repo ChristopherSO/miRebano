@@ -1,56 +1,38 @@
 ﻿angular.module('starter.services', ['starter.models'])
 
 .service('PersonService', function (Person, $http) {
-	
-	var personsData = {};
 
+	var persons = [];
+	
 	return {
 
-		loadPersons: function () {
+		getPersons: function () {
 			return $http.get('json/persons.json').then(function (response) {
-				personsData = response.data;
+				response.data.forEach(function (person) {
+					persons.push(
+						new Person(
+							person.id,
+							person.nombre,
+							person.apellido1,
+							person.apellido2,
+							person.genero,
+							person.foto,
+							person.miembroNivel,
+							person.provincia,
+							person.canton,
+							person.distrito,
+							person.barrio
+						)
+					);
+				});
+				return persons;
 			});
 		},
 
-		getPersons: function () {
-			var persons = [];
-			personsData.forEach(function (person) {
-				persons.push(
-					new Person(
-						person.id,
-						person.nombre,
-						person.apellido1,
-						person.apellido2,
-						person.genero,
-						person.foto,
-						person.miembroNivel,
-						person.provincia,
-						person.canton,
-						person.distrito,
-						person.barrio
-					)
-				);
-			})
-			return persons;
-		},
-
 		getPerson: function (personId) {
-			for (i = 0; i < personsData.length; i++) {
-				if (personsData[i].id == personId) {
-					var person = personsData[i];
-					return new Person(
-						person.id,
-						person.nombre,
-						person.apellido1,
-						person.apellido2,
-						person.genero,
-						person.foto,
-						person.miembroNivel,
-						person.provincia,
-						person.canton,
-						person.distrito,
-						person.barrio
-					);
+			for (i = 0; i < persons.length; i++) {
+				if (persons[i].id == personId) {
+					return persons[i];
 				}
 			}
 		}
@@ -58,35 +40,75 @@
 	}
 })
 
-.service('EventService', function (Event, $http) {
-	
-	var eventsData = [];
+.service('EventService', function ($http, Event, Person) {
 
 	return {
 
-		loadEvents: function () {
+		getEvents: function () {
 			return $http.get('json/events.json').then(function (response) {
-				eventsData = response.data;
+				var events = [];
+				response.data.forEach(function (event) {
+					events.push(
+						new Event(
+							event.id,
+							event.id_persona,
+							event.tipo,
+							event.icono,
+							event.dia,
+							event.mes,
+							event.anio
+						)
+					);
+				});
+				return events;
 			});
+
 		},
 
-		getEvents: function () {
-			var events = [];
-			eventsData.forEach(function (event) {
-				events.push(
-					new Event(
-						event.id,
-						event.id_persona,
-						//PersonService.getPerson(event.id_persona),
-						event.tipo,
-						event.icono,
-						event.dia,
-						event.mes,
-						event.anio
-					)
-				);
+		getEventsWithPersons: function () {
+			return $http.get('json/events.json').then(function (responseEvents) {
+				console.log("responseEvents: ", responseEvents);
+				return $http.get('json/persons.json').then(function (responsePersons) {
+					console.log("responsePersons: ", responsePersons);
+					var events = [];
+					console.log(1);
+					responseEvents.data.forEach(function (eventData) {
+						console.log("eventData");
+						var person = {};
+						for (i = 0; i < responsePersons.data.length; i++) {
+							if (responsePersons.data[i].id == eventData.id_persona) {
+								person = new Person(
+									responsePersons.data[i].id,
+									responsePersons.data[i].nombre,
+									responsePersons.data[i].apellido1,
+									responsePersons.data[i].apellido2,
+									responsePersons.data[i].genero,
+									responsePersons.data[i].foto,
+									responsePersons.data[i].miembroNivel,
+									responsePersons.data[i].provincia,
+									responsePersons.data[i].canton,
+									responsePersons.data[i].distrito,
+									responsePersons.data[i].barrio
+								)
+							}
+						}
+						events.push(
+							new Event(
+								eventData.id,
+								eventData.id_persona,
+								person,
+								eventData.tipo,
+								eventData.icono,
+								eventData.dia,
+								eventData.mes,
+								eventData.anio
+							)
+						);
+					});
+					console.log(2);
+					return events;
+				});
 			});
-			return events;
 		},
 
 		getPersonsEvents: function (personId) {

@@ -1,6 +1,6 @@
 <ion-view id="persons" view-title="Miembros">
 	<ion-content>
-		<ion-list>
+		<ion-list ng-show="personsReady">
 			<ion-item class="item-user" ng-repeat="person in persons" href="#/app/persons/{{person.id}}">
 				<ng-include src="'templates/personItem.html'"></ng-include>
 			</ion-item>

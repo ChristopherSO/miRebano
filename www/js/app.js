@@ -39,18 +39,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 				templateUrl: 'templates/events.html',
 				controller: 'EventsCtrl'
 			}
-		},
-		resolve: {
-			loadPersons: function (PersonService) {
-				return PersonService.loadPersons().then(function () {
-					console.log("1:", "Terminó de cargar la lista de personas");
-				});
-			},
-			loadEvents: function (EventService) {
-				return EventService.loadEvents().then(function () {
-					console.log("2:", "Terminó de cargar la lista de eventos");
-				});
-			}
 		}
 	})
 
@@ -60,13 +48,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 			'menuContent': {
 				templateUrl: 'templates/persons.html',
 				controller: 'PersonsCtrl'
-			}
-		},
-		resolve: {
-			loadPersons: function (PersonService) {
-				return PersonService.loadPersons().then(function () {
-					console.log("1:", "Terminó de cargar la lista de personas");
-				});
 			}
 		}
 	})
@@ -78,38 +59,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 				templateUrl: 'templates/personDetails.html',
 				controller: 'PersonDetailsCtrl'
 			}
-		},
-		resolve: {
-			loadPersons: function (PersonService) {
-				return PersonService.loadPersons().then(function () {
-					console.log("1:", "Terminó de cargar la lista de personas");
-				});
-			},
-			loadEvents: function (EventService) {
-				return EventService.loadEvents().then(function () {
-					console.log("2:", "Terminó de cargar la lista de eventos");
-				});
-			},
-			loadProvinces: function (LocationService) {
-				return LocationService.loadProvinces().then(function () {
-					console.log("1:", "loadProvinces");
-				});
-			},
-			loadCantons: function (LocationService) {
-				return LocationService.loadCantons().then(function () {
-					console.log("2:", "loadCantons");
-				});
-			},
-			loadDistricts: function (LocationService) {
-				return LocationService.loadDistricts().then(function () {
-					console.log("3:", "loadDistricts");
-				});
-			},
-			loadNeighborhoods: function (LocationService) {
-				return LocationService.loadNeighborhoods().then(function () {
-					console.log("4:", "loadNeighborhoods");
-				});
-			}
 		}
 	})
 
@@ -119,13 +68,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 			'menuContent': {
 				templateUrl: 'templates/activities.html',
 				controller: 'ActivitiesCtrl'
-			}
-		},
-		resolve: {
-			loadActivities: function (ActivityService) {
-				return ActivityService.loadActivities().then(function () {
-					console.log("3:", "Terminó de cargar la lista de actividades");
-				});
 			}
 		}
 	})
@@ -137,13 +79,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 				templateUrl: 'templates/attendance.html',
 				controller: 'AttendanceCtrl'
 			}
-		},
-		resolve: {
-			loadAttendance: function (AttendanceService) {
-				return AttendanceService.loadAttendance().then(function () {
-					console.log("4:", "Terminó de cargar la lista de asistencia");
-				});
-			}
 		}
 	});
 
@@ -152,7 +87,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 })
 
 .config(function ($ionicConfigProvider) {
-	$ionicConfigProvider.views.maxCache(5);
+	// Force reload controller each it enters a view 
+	$ionicConfigProvider.views.maxCache(0);
 
 	// Change back button text
 	$ionicConfigProvider.backButton.text('Atrás');

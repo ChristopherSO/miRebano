@@ -2,9 +2,17 @@
 	<ion-content>
   		<div class="card" ng-repeat="event in events">
 	  		<div class="item item-text-wrap item-user-event">
-				<img class="pic" ng-src="img/{{event.getPerson(event.personId).pic}}" />
+				<!--<img class="pic" ng-src="img/{{event.person.pic}}" />-->
+				<!--<div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>-->
+				<i class="icon"
+				   ng-if="event.person.gender"
+				   ng-class="{
+						'icon-avatar-boy':  event.person.gender=='M',
+						'icon-avatar-girl': event.person.gender=='F'
+					}"
+				></i>
 				<i class="{{event.icon}}"></i>
-				<a href="#/app/persons/{{event.personId}}">{{event.getPerson(event.personId).getFullName()}}</a> tiene su {{event.type}} el <nobr>{{event.getDate() | date:"d 'de' MMMM"}}</nobr>
+				<a href="#/app/persons/{{event.personId}}">{{event.person.getFullName()}}</a> tiene su {{event.type}} el <nobr>{{event.getDate() | date:"d 'de' MMMM"}}</nobr>
 				<nobr ng-if="event.year>0">(Cumple {{event.getYearsToMeet()}} años)</nobr>
 	  		</div>
   		</div>

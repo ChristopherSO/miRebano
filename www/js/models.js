@@ -51,10 +51,11 @@
 	/**
 	 * Constructor
 	 */
-	function Event(id, personId, type, icon, day, month, year) {
+	function Event(id, personId, person, type, icon, day, month, year) {
 		// Public properties, assigned to the instance ('this')
 		this.id = id;
 		this.personId = personId;
+		this.person = person;
 		this.type = type;
 		this.icon = icon;
 		this.day = day;
