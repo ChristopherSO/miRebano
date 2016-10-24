@@ -1,15 +1,14 @@
 ﻿angular.module('starter.services', ['starter.models'])
 
-.service('PersonService', function (Person, $http) {
+.service('PersonService', function ($http, Person) {
 
-	var persons = [];
-	
 	return {
 
 		getPersons: function () {
 			return $http.get('json/persons.json').then(function (response) {
+				global.persons = [];
 				response.data.forEach(function (person) {
-					persons.push(
+					global.persons.push(
 						new Person(
 							person.id,
 							person.nombre,
@@ -25,14 +24,15 @@
 						)
 					);
 				});
-				return persons;
+				return global.persons;
 			});
 		},
 
 		getPerson: function (personId) {
-			for (i = 0; i < persons.length; i++) {
-				if (persons[i].id == personId) {
-					return persons[i];
+			console.log("global.persons", global.persons);
+			for (i = 0; i < global.persons.length; i++) {
+				if (global.persons[i].id == personId) {
+					return global.persons[i];
 				}
 			}
 		}
@@ -40,15 +40,15 @@
 	}
 })
 
-.service('EventService', function ($http, Event, Person) {
+.service('EventService', function ($http, $q, Event, Person) {
 
 	return {
 
 		getEvents: function () {
 			return $http.get('json/events.json').then(function (response) {
-				var events = [];
+				global.events = [];
 				response.data.forEach(function (event) {
-					events.push(
+					global.events.push(
 						new Event(
 							event.id,
 							event.id_persona,
@@ -60,39 +60,37 @@
 						)
 					);
 				});
-				return events;
+				return global.events;
 			});
 
 		},
 
 		getEventsWithPersons: function () {
-			return $http.get('json/events.json').then(function (responseEvents) {
-				console.log("responseEvents: ", responseEvents);
-				return $http.get('json/persons.json').then(function (responsePersons) {
-					console.log("responsePersons: ", responsePersons);
-					var events = [];
-					console.log(1);
-					responseEvents.data.forEach(function (eventData) {
-						console.log("eventData");
+			var d = $q.defer();
+
+			$http.get('json/events.json').then(function successCallback(eventsResponse) {
+				$http.get('json/persons.json').then(function (personsResponse) {
+					global.events = [];
+					eventsResponse.data.forEach(function (eventData) {
 						var person = {};
-						for (i = 0; i < responsePersons.data.length; i++) {
-							if (responsePersons.data[i].id == eventData.id_persona) {
+						for (i = 0; i < personsResponse.data.length; i++) {
+							if (personsResponse.data[i].id == eventData.id_persona) {
 								person = new Person(
-									responsePersons.data[i].id,
-									responsePersons.data[i].nombre,
-									responsePersons.data[i].apellido1,
-									responsePersons.data[i].apellido2,
-									responsePersons.data[i].genero,
-									responsePersons.data[i].foto,
-									responsePersons.data[i].miembroNivel,
-									responsePersons.data[i].provincia,
-									responsePersons.data[i].canton,
-									responsePersons.data[i].distrito,
-									responsePersons.data[i].barrio
+									personsResponse.data[i].id,
+									personsResponse.data[i].nombre,
+									personsResponse.data[i].apellido1,
+									personsResponse.data[i].apellido2,
+									personsResponse.data[i].genero,
+									personsResponse.data[i].foto,
+									personsResponse.data[i].miembroNivel,
+									personsResponse.data[i].provincia,
+									personsResponse.data[i].canton,
+									personsResponse.data[i].distrito,
+									personsResponse.data[i].barrio
 								)
 							}
 						}
-						events.push(
+						global.events.push(
 							new Event(
 								eventData.id,
 								eventData.id_persona,
@@ -105,28 +103,22 @@
 							)
 						);
 					});
-					console.log(2);
-					return events;
+					d.resolve(global.events);
+				}, function errorCallback(personsResponse) {
+					d.reject();
 				});
+			}, function errorCallback(eventsResponse) {
+				d.reject();
 			});
+
+			return d.promise;
 		},
 
 		getPersonsEvents: function (personId) {
 			var personsEvents = [];
-			eventsData.forEach(function (event) {
-				if (event.id_persona == personId) {
-					personsEvents.push(
-						new Event(
-							event.id,
-							event.id_persona,
-							//PersonService.getPerson(event.id_persona),
-							event.tipo,
-							event.icono,
-							event.dia,
-							event.mes,
-							event.anio
-						)
-					);
+			global.events.forEach(function (event) {
+				if (event.personId == personId) {
+					personsEvents.push(event);
 				}
 			})
 			return personsEvents;
@@ -134,7 +126,7 @@
 	}
 })
 
-.service('ActivityService', function (Activity, $http) {
+.service('ActivityService', function ($http, Activity) {
 	
 	var activitiesData = [];  // fecha en yyyy/m/d
 
@@ -172,7 +164,7 @@
 	}
 })
 
-.service('AttendanceService', function (PersonService, $http) {
+.service('AttendanceService', function ($http, PersonService) {
 	
 	var attendanceData = [];
 

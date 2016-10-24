@@ -43,7 +43,6 @@
 
 .controller('EventsCtrl', function ($scope, EventService) {
 	EventService.getEventsWithPersons().then(function (events) {
-		console.log("events: ", events);
 		$scope.events = events;
 	});
 	$scope.doSomething = function () {
@@ -62,10 +61,24 @@
 	};
 })
 
-.controller('PersonDetailsCtrl', function ($scope, $stateParams, PersonService, EventService, LocationService) {
+.controller('PersonDetailsCtrl', function ($scope, $stateParams, $q, PersonService, EventService, LocationService) {
 	$scope.person = PersonService.getPerson($stateParams.personId);
+	console.log("$scope.person", $scope.person);
 	$scope.personsEvents = EventService.getPersonsEvents($stateParams.personId);
-	$scope.personsLocation = LocationService.getLocation($scope.person.province, $scope.person.canton, $scope.person.district, $scope.person.neighborhood);
+	
+	$q.all([
+		LocationService.loadProvinces(),
+		LocationService.loadCantons(),
+		LocationService.loadDistricts(),
+		LocationService.loadNeighborhoods()
+	]).then(function (values) {
+		$scope.personsLocation = LocationService.getLocation(
+			$scope.person.province,
+			$scope.person.canton,
+			$scope.person.district,
+			$scope.person.neighborhood
+		);
+	});
 })
 
 .controller('ActivitiesCtrl', function ($scope, ActivityService) {

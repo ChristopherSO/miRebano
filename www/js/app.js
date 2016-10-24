@@ -93,3 +93,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 	// Change back button text
 	$ionicConfigProvider.backButton.text('Atrás');
 });
+
+// Variables globales
+var global = {
+	persons: [],
+	events: []
+};
