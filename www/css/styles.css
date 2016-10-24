@@ -44,3 +44,9 @@
 .icon-interlocking-rings:before {
   content: "\77";
 }
+.icon-avatar-boy:before {
+  content: "\61";
+}
+.icon-avatar-girl:before {
+  content: "\63";
+}

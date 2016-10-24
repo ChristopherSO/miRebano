@@ -1,3 +1,12 @@
-<img ng-src="img/{{person.pic}}" />
+<!--<img ng-src="img/{{person.pic}}" />-->
+<!--<div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>-->
+<i
+	class="icon"
+	ng-if="person.gender" 
+	ng-class="{
+		'icon-avatar-boy':  person.gender=='M',
+		'icon-avatar-girl': person.gender=='F'
+	}" 
+></i>
 <h2>{{person.getFullName()}}</h2>
 <p>{{person.memberLevel}}</p>

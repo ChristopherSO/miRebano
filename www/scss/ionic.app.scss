@@ -77,6 +77,22 @@ $positive: #42739F !default;
 	text-decoration: none;
 }
 
+.item-user-event i.icon {
+	position: absolute;
+	top: 11.5px;
+	left: 15.5px;
+	font-size: 48px;
+	text-shadow:
+		-0.5px   0,
+		-0.35px  0.35px,
+		 0       0.5px,
+		 0.35px  0.35px,
+		 0.5px   0,
+		 0.35px -0.35px,
+		 0      -0.5px,
+		-0.35px -0.35px;
+}
+
 .item-user-event img.pic {
 	position: absolute;
 	top: 11px;
@@ -115,6 +131,23 @@ $positive: #42739F !default;
 
 .item-user .item-content h2 {
 	font-weight: bold;
+}
+
+.item-user i {
+	position: absolute;
+	top: 7.5px;
+	left: 15.5px;
+	font-size: 48px;
+	color: $positive;
+	text-shadow:
+		-0.5px   0      $positive,
+		-0.35px  0.35px $positive,
+		 0       0.5px  $positive,
+		 0.35px  0.35px $positive,
+		 0.5px   0      $positive,
+		 0.35px -0.35px $positive,
+		 0      -0.5px  $positive,
+		-0.35px -0.35px $positive;
 }
 
 .item-user img {

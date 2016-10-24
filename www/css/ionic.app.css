@@ -63,6 +63,13 @@ $dark:                            #444 !default;
 .item-user-event a {
   text-decoration: none; }
 
+.item-user-event i.icon {
+  position: absolute;
+  top: 11.5px;
+  left: 15.5px;
+  font-size: 48px;
+  text-shadow: -0.5px   0, -0.35px  0.35px, 0       0.5px, 0.35px  0.35px, 0.5px   0, 0.35px -0.35px, 0      -0.5px, -0.35px -0.35px; }
+
 .item-user-event img.pic {
   position: absolute;
   top: 11px;
@@ -89,6 +96,14 @@ $dark:                            #444 !default;
 
 .item-user .item-content h2 {
   font-weight: bold; }
+
+.item-user i {
+  position: absolute;
+  top: 7.5px;
+  left: 15.5px;
+  font-size: 48px;
+  color: #42739F;
+  text-shadow: -0.5px 0 #42739F, -0.35px 0.35px #42739F, 0 0.5px #42739F, 0.35px 0.35px #42739F, 0.5px 0 #42739F, 0.35px -0.35px #42739F, 0 -0.5px #42739F, -0.35px -0.35px #42739F; }
 
 .item-user img {
   position: absolute;
