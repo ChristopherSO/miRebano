@@ -88,7 +88,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
 .config(function ($ionicConfigProvider) {
 	// Force reload controller each it enters a view 
-	$ionicConfigProvider.views.maxCache(0);
+	$ionicConfigProvider.views.maxCache(5);
 
 	// Change back button text
 	$ionicConfigProvider.backButton.text('Atrás');

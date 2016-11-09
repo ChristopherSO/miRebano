@@ -45,17 +45,26 @@
 	EventService.getEventsWithPersons().then(function (events) {
 		$scope.events = events;
 	});
+	console.log(11);
+	$scope.$on("$ionicView.beforeEnter", function (event, data) {
+		// handle event
+		console.log("Events State Params beforeEnter: ", data.stateParams);
+	});
 	$scope.doSomething = function () {
 		console.log(new Date("2015/10/3"));
 	};
 })
 
 .controller('PersonsCtrl', function ($scope, PersonService) {
-	$scope.personsReady = false;
-	PersonService.getPersons().then(function (persons) {
-		$scope.persons = persons;
-		$scope.personsReady = true;
+
+	$scope.$on("$ionicView.beforeEnter", function (event, data) {
+		// handle event
+		console.log("Persons State Params beforeEnter: ", data.stateParams);
+		PersonService.getPersons().then(function (persons) {
+			$scope.persons = persons;
+		});
 	});
+
 	$scope.doSomething2 = function () {
 		console.log(new Date(2015, 10, 3));
 	};
