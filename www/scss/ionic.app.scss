@@ -169,6 +169,11 @@ $positive: #42739F !default;
 	margin-bottom: 6px;
 }
 
+.buttons-right .right-buttons,
+ion-modal-view .buttons {
+	padding-right: 6px;
+}
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 

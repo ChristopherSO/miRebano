@@ -1,0 +1,31 @@
+﻿<ion-modal-view>
+	<ion-header-bar class="bar-positive">
+		<h1 class="title">{{ action }} miembro</h1>
+		<div class="buttons">
+			<button class="button button-icon icon ion-trash-a" ng-hide="isAdd" ng-click="deletePerson()"></button>
+			<button class="button button-clear ion-close" ng-click="modal.hide()"></button>
+		</div>
+	</ion-header-bar>
+	<ion-content>
+		<div class="list list-inset">
+			<label class="item item-input">
+				<input type="text" placeholder="Nombre" ng-model="person.firstName">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Primer apellido" ng-model="person.lastName1">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Segundo apellido" ng-model="person.lastName2">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Género" ng-model="person.gender">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Nivel de servicio" ng-model="person.memberLevel">
+			</label>
+		</div>
+		<div class="padding">
+			<button ng-click="savePerson()" class="button button-block button-positive activated">Guardar</button>
+		</div>
+	</ion-content>
+</ion-modal-view>

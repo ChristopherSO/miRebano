@@ -1,8 +1,46 @@
 ﻿angular.module('starter.services', ['starter.models'])
 
-.service('PersonService', function ($http, Person) {
+.service('PersonService', function (Person, $q, Loki) {
+
+	var db;
+	var persons;
 
 	return {
+
+		initDB: function () {
+			var adapter = new LokiCordovaFSAdapter({ "prefix": "loki" });
+			db = new Loki('personsDB', { adapter: adapter });
+			console.log("db", db);
+		},
+
+		getAllPersons: function () {        
+			return $q(function (resolve, reject) {
+				var options = {};
+				console.log("db", db);
+				db.loadDatabase(options, function () {
+					persons = db.getCollection('persons');
+
+					if (!persons) {
+						persons = db.addCollection('persons');
+					}
+
+					resolve(persons.data);
+				});
+			});
+		},
+
+		addPerson: function (person) {  
+			persons.insert(person);
+			db.saveDatabase();
+		},
+
+		updatePerson: function (person) {  
+			persons.update(person);
+		},
+
+		deletePerson: function (person) {  
+			persons.remove(person);
+		},
 
 		getPersons: function () {
 			return $http.get('json/persons.json').then(function (response) {
@@ -35,6 +73,11 @@
 					return global.persons[i];
 				}
 			}
+		},
+
+		getEmptyPerson: function () {
+			console.log("getEmptyPerson");
+			return new Person();
 		}
 
 	}

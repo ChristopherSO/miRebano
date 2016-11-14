@@ -55,13 +55,58 @@
 	};
 })
 
-.controller('PersonsCtrl', function ($scope, PersonService) {
+.controller('PersonsCtrl', function ($scope, $ionicPlatform, $ionicModal, PersonService) {
+
+	$ionicPlatform.ready(function() {
+		// Initialize the database
+		PersonService.initDB();
+	});
+
+	// Initialize the modal view.
+	$ionicModal.fromTemplateUrl('templates/addOrEditPerson.html', {
+		scope: $scope,
+		animation: 'slide-in-up'
+	}).then(function (modal) {
+		$scope.modal = modal;
+	});
+
+	$scope.showAddPersonModal = function () {
+		$scope.person = PersonService.getEmptyPerson();
+		$scope.action = 'Agregar';
+		$scope.isAdd = true;
+		$scope.modal.show();
+	};
+
+	$scope.showEditPersonModal = function (person) {
+		$scope.person = person;
+		$scope.action = 'Editar';
+		$scope.isAdd = false;
+		$scope.modal.show();
+	};
+
+	$scope.savePerson = function () {
+		if ($scope.isAdd) {
+			PersonService.addPerson($scope.person);
+		} else {
+			PersonService.updatePerson($scope.person);
+		}
+		$scope.modal.hide();
+		$scope.person = PersonService.getEmptyPerson();
+	};
+
+	$scope.deletePerson = function () {
+		PersonService.deletePerson($scope.person);
+		$scope.modal.hide();
+	};
+
+	$scope.$on('$destroy', function () {
+		$scope.modal.remove();
+	});
 
 	$scope.$on("$ionicView.beforeEnter", function (event, data) {
-		// handle event
-		console.log("Persons State Params beforeEnter: ", data.stateParams);
-		PersonService.getPersons().then(function (persons) {
+		PersonService.getAllPersons().then(function (persons) {
 			$scope.persons = persons;
+			console.log(persons);
 		});
 	});
 

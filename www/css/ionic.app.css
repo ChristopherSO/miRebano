@@ -121,6 +121,10 @@ $dark:                            #444 !default;
 .subheader-user h2 {
   margin-bottom: 6px; }
 
+.buttons-right .right-buttons,
+ion-modal-view .buttons {
+  padding-right: 6px; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

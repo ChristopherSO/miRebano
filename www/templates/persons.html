@@ -1,4 +1,7 @@
 <ion-view id="persons" view-title="Miembros">
+	<ion-nav-buttons side="right">
+		<button class="button button-clear ion-plus" ng-click="showAddPersonModal()"></button>
+	</ion-nav-buttons>
 	<ion-content>
 		<ion-list>
 			<ion-item class="item-user" ng-repeat="person in persons" href="#/app/persons/{{person.id}}">
